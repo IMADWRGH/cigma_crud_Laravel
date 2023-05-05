@@ -12,7 +12,8 @@ class EtudiantController extends Controller
      */
     public function index()
     {
-        //
+        $list_etudiants = Etudiant::all();
+        return view('etudiant.index', ['etudiants' => $list_etudiants]);
     }
 
     /**
@@ -20,7 +21,7 @@ class EtudiantController extends Controller
      */
     public function create()
     {
-        //
+        return view('etudiant.form');
     }
 
     /**
@@ -28,38 +29,50 @@ class EtudiantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $etd = new Etudiant();
+        $etd->nom = $request->nom;
+        $etd->prenom = $request->prenom;
+        $etd->note = $request->note;
+        $etd->save();
+        return redirect('/etudiants');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Etudiant $etudiant)
+    public function show($id)
     {
-        //
+        return view('etudiant.show', ['etudiant' => Etudiant::find($id)]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Etudiant $etudiant)
+    public function edit($id)
     {
-        //
+        return view('etudiant.edit', ['etudiant' => Etudiant::find($id)]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Etudiant $etudiant)
+    public function update(Request $request, $id)
     {
-        //
+        $etd = Etudiant::find($id);
+        $etd->nom = $request->nom;
+        $etd->prenom = $request->prenom;
+        $etd->note = $request->note;
+        $etd->save();
+        return redirect('/etudiants');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Etudiant $etudiant)
+    public function destroy($id)
     {
-        //
+        $etd = Etudiant::find($id);
+        $etd->delete();
+        return redirect('/etudiants');
     }
 }
