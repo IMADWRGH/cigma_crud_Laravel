@@ -1,12 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cigma</title>
-</head>
-<body><center>
+@extends('master.base')
+@section('contenu')
+<center>
     <h1>Ajouter un etudiant</h1>
     <form action="/etudiants/{{$etudiant->id}}" method="post">
         @csrf
@@ -21,5 +16,5 @@
         <input type="reset" value="Annuler">
     </form>
     </center>
-</body>
-</html>
+    @endsection
+

@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cigma</title>
-</head>
-<body>
+@extends('master.base')
+@section('contenu')
     <center>
     <h1>La liste des etudiants</h1>
-    <table border="1" width='100%'>
+    <table width='100%' class="table">
         <tr >
             <th>ID</th>
             <th>Nom</th>
@@ -38,5 +31,5 @@
 <h3>    <a href="etudiants/create">Ajouter</a>
 </h3>
     </center>
-</body>
-</html>
+   
+@endsection

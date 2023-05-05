@@ -1,24 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cigma</title>
-</head>
-<body><center>
-    <h1>Ajouter un etudiant</h1>
+@extends('master.base')
+@section('contenu')
+
+    <h1 class="mt-2 d-flex justify-content-center">Ajouter un etudiant</h1>
+ <div class="form-group m-4">
     <form action="/etudiants" method="post">
         @csrf
-        <label for="nom">Nom :</label>
-        <input type="text" name="nom"><br><br>
-        <label for="prenom">Prenom :</label>
-        <input type="text" name="prenom"><br><br>
-        <label for="note">Note :</label>
-        <input type="text" name="note"><br><br>
-        <input type="submit" value="Ajouter">
-        <input type="reset" value="Annuler">
+        <label class="p-2"  for="nom">Nom :</label>
+        <input class="form-control m-4" type="text" name="nom">
+        <label class="p-2"  for="prenom">Prenom :</label>
+        <input class="form-control m-4" type="text" name="prenom">
+        <label class="p-2"  for="note">Note :</label>
+        <input class="form-control m-4" type="text" name="note">
+      <div class="d-flex justify-content-center p-4 "> 
+          <input  class="m-2 p-4 rounded-pill " type="submit" value="Ajouter">
+        <input  class="m-2 p-4 rounded-pill" type="reset" value="Annuler">
+      </div>
     </form>
-    </center>
-</body>
-</html>
+     </div>
+    @endsection
+      
