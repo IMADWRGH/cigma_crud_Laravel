@@ -2,7 +2,7 @@
 @extends('master.base')
 @section('contenu')
 <center>
-    <h1>Ajouter un etudiant</h1>
+    <h1>Information Étudiant</h1>
     <form action="/etudiants/{{$etudiant->id}}" method="post">
         @csrf
         @method('PUT')
