@@ -21,7 +21,7 @@ class AuthManager extends Controller
     public function LoginPost(Request $request)
     {
         $request->validate([
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'pwd' => 'required',
         ]);
         $credentials = $request->only('email', 'pwd');
