@@ -18,10 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/login', [AuthManager::class, 'login'])->name('login');
-Route::get('/logout', [AuthManager::class, 'Logout'])->name('logout');
-Route::post('/login', [AuthManager::class, 'LoginPost'])->name('login.post');
-Route::get('/registration', [AuthManager::class, 'registration'])->name('registration');
-Route::post('/registration', [AuthManager::class, 'RegistrationPost'])->name('registration.post');
 
 Route::resource('etudiants', EtudiantController::class);
+Route::get('etudiants/search', [EtudiantController::class, 'search']);

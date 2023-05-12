@@ -2,6 +2,10 @@
 @section('contenu')
     <center>
     <h1>La liste des etudiants</h1>
+    <div class="form-group m-2 p-4">
+      <label for="search">Search :</label>
+      <input type="search"  id="search" class="col-3" placeholder="Search..">
+    </div>
     <table width='100%' class="table">
         <tr >
             <th>ID</th>
@@ -30,6 +34,28 @@
     </table>
 <h3>    <a href="etudiants/create">Ajouter</a>
 </h3>
-    </center>
-   
+</center>
+   <script>
+$(document).ready(function(){
+
+ fetch_etudiant_data();
+
+ function fetch_etudiant_data(query='')
+ {
+    $.ajax({
+   url:"{{route('search.doctor')}}",
+   method:"GET",
+   data:{'query':query},
+   dataType:'json',
+   success:function(data)})
+ }
+  $(document).on('keyup', '#search', function(){
+  var query = $(this).val();
+  fetch_etudiant_data(query);
+ });
+ 
+
+
+ });
+</script>
 @endsection

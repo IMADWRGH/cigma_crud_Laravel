@@ -75,4 +75,33 @@ class EtudiantController extends Controller
         $etd->delete();
         return redirect('/etudiants');
     }
+    public function search(Request $request)
+    {
+        if ($request->ajax()) {
+            $output = '';
+            $query = $request->get('query');
+
+            if ($query != '') {
+
+                $data = Etudiant::table('etudiant')
+                    ->where('id', 'like', '%' . $query . '%')
+                    ->orWhere('nom', 'like', '%' . $query . '%')
+                    ->orWhere('prenom', 'like', '%' . $query . '%')
+                    ->orderBy('id', 'desc')
+                    ->get();
+            } else {
+                $data = Etudiant::table('etudiant')
+                    ->orderBy('id', 'desc')
+                    ->get();
+            }
+            $total_row = $data->count();
+            if ($total_row > 0) {
+            } else {
+                $output = '
+                <tr>
+                <td align="center" colspan="5">No Data </td>
+                </tr>';
+            }
+        }
+    }
 }
