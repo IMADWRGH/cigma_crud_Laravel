@@ -7,14 +7,15 @@
         @csrf
         @method('PUT')
         <label for="nom">Nom :</label>
-        <input type="text" name="nom" value="{{$etudiant->nom}}"><br><br>
+        <input type="text" name="nom" value="{{$etudiant->nom}}">&nbsp;&nbsp;
         <label for="prenom">Prenom :</label>
-        <input type="text" name="prenom" value="{{$etudiant->prenom}}"><br><br>
+        <input type="text" name="prenom" value="{{$etudiant->prenom}}">&nbsp;&nbsp;
         <label for="note">Note :</label>
-        <input type="text" name="note" value="{{$etudiant->note}}"><br><br>
+        <input type="text" name="note" value="{{$etudiant->note}}">&nbsp;&nbsp;
         <input type="submit" value="Modifier">
         <input type="reset" value="Annuler">
     </form>
+
     </center>
     @endsection
 
